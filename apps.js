@@ -7,10 +7,14 @@ function initOpenCVDemo() {
 }
 
 // Cuando termine de cargarse, llamamos a la funcion 
-cv['onRuntimeInitialized'] = function() {
+async function openCvReady() {
+  // Si cv es una Promise (WASM moderno), esperamos a que se resuelva
+  cv = (cv instanceof Promise) ? await cv : cv;
+
   console.log('OpenCV.js listo');
   initOpenCVDemo();
-};
+}
+openCvReady();
 
 function readInputs() {
   // Coge las imagenes desde del tag <img>
@@ -65,4 +69,3 @@ function onSubImages() {
   dst.delete();
   mask.delete();
 }
-
