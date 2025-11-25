@@ -29,3 +29,21 @@ function readInputs() {
   return { src1, src2 };
 }
 
+function onAddImages() {
+  const { src1, src2 } = readInputs();
+
+  let dst = new cv.Mat();
+  let mask = new cv.Mat();
+  let dtype = -1; // Mismo tipo que las imagenes de entrada
+
+  cv.add(src1, src2, dst, mask, dtype);
+
+  // Muestra el resultado en el canvas
+  cv.imshow('canvasOutput', dst);
+
+  // Liberar memoria para evitar fugas
+  src1.delete();
+  src2.delete();
+  dst.delete();
+  mask.delete();
+}
