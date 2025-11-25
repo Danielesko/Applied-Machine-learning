@@ -6,8 +6,33 @@
     <title>OpenCSV</title>
 </head>
 <body>
-    
+<div id="opencv-demo">
+  <h2>Ejemplo de operaciones con imágenes (OpenCV.js)</h2>
+
+  <div>
+    <p>Imagen 1</p>
+    <img id="image1" src="img/paisaje.png" alt="paisaje png" />
+  </div>
+
+  <div>
+    <p>Imagen 2</p>
+    <img id="image2" src="img/persona.png" alt="persona png" />
+  </div>
+
+  <div style="margin-top: 10px;">
+    <button id="btnAdd">Sumar</button>
+    <button id="btnSub">Restar</button>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <p>Resultado:</p>
+    <canvas id="canvasOutput"></canvas>
+  </div>
+</div>
+
 </body>
+<!-- Llamada al script de OpenCV -->
 <script async src="https://docs.opencv.org/3.4.0/opencv.js" type="text/javascript"></script>
+<!-- llamada a nuestro js -->
 <script src="app.js"></script>
 </html>
